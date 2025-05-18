@@ -1,4 +1,4 @@
-# 🧠 Productivity Suite
+# 🧠 Productivity Suite & Dev Tools
 
 A powerful all-in-one web-based productivity toolkit built with **HTML**, **CSS**, and **JavaScript** — no frameworks, no dependencies. Includes a full suite of tools to help you stay organized, focused, and efficient.
 
