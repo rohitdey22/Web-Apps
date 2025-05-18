@@ -75,4 +75,5 @@ A powerful all-in-one web-based productivity toolkit built with **HTML**, **CSS*
 
 ## 💡 Getting Started
 
-### 1. Clone the repo:
+🙌 Credits
+Built entirely with vanilla HTML, CSS, and JavaScript by Rohit Dey.
