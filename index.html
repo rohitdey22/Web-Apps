@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Productivity Suite</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <header>
+    <h1>🧠 Productivity Suite & Dev Tools</h1>
+    <nav>
+      <button data-section="task-list">Task List</button>
+      <button data-section="sticky-notes">Sticky Notes</button>
+      <button data-section="pomodoro">Pomodoro Timer</button>
+      <button data-section="markdown">Markdown Editor</button>
+      <button data-section="calendar">Weekly Calendar</button>
+      <button data-section="timezone">Time Zone Converter</button>
+      <button data-section="json-editor">JSON Viewer</button>
+      <button data-section="mind-map">Mind Map</button>
+      <button data-section="snippets">Snippet Manager</button>
+      <button data-section="regex">Regex Tester</button>
+    </nav>
+  </header>
+  <main>
+    <section id="task-list" class="tool-section">
+      <h2>📋 Task List</h2>
+      <form id="task-form">
+        <input type="text" id="task-name" placeholder="Task name" required />
+        <select id="task-priority">
+          <option value="low">Low</option>
+          <option value="medium">Medium</option>
+          <option value="high">High</option>
+        </select>
+        <button type="submit">Add Task</button>
+      </form>
+      <ul id="task-items"></ul>
+    </section>
+
+    <section id="sticky-notes" class="tool-section">
+      <h2>📝 Sticky Notes</h2>
+      <button id="add-note">➕ Add Note</button>
+      <div id="notes-container"></div>
+    </section>
+
+    <section id="pomodoro" class="tool-section">
+      <h2>⏳ Pomodoro Timer</h2>
+      <div id="pomodoro-timer">
+        <div id="timer-display">25:00</div>
+        <div class="pomodoro-controls">
+          <button id="start-timer">▶️ Start</button>
+          <button id="pause-timer">⏸️ Pause</button>
+          <button id="reset-timer">🔄 Reset</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="markdown" class="tool-section"><h2>📝 Markdown Editor</h2>
+        <div id="markdown-container">
+          <textarea id="markdown-input" placeholder="Write your markdown here..."></textarea>
+          <div id="markdown-preview"></div>
+        </div>
+        <div id="word-count">Word count: 0</div>
+        </section>
+    <section id="calendar" class="tool-section"><h2>📅 Weekly Calendar</h2>
+        <div id="calendar-container">
+          <div id="calendar-grid">
+            <div class="calendar-header">Time</div>
+            <div class="calendar-header">Monday</div>
+            <div class="calendar-header">Tuesday</div>
+            <div class="calendar-header">Wednesday</div>
+            <div class="calendar-header">Thursday</div>
+            <div class="calendar-header">Friday</div>
+            <div class="calendar-header">Saturday</div>
+            <div class="calendar-header">Sunday</div>
+        
+            <!-- Time slots (8am - 6pm) -->
+            <!-- Each time slot is a grid cell -->
+            <!-- For simplicity, 1-hour slots -->
+            <!-- The following divs will be generated dynamically by JS -->
+          </div>
+        
+          <div id="task-pool">
+            <h3>Tasks</h3>
+            <ul id="calendar-task-list">
+              <!-- tasks will be added here -->
+            </ul>
+            <button id="add-calendar-task-btn">➕ Add Task</button>
+            <input type="text" id="new-calendar-task-name" placeholder="New task name" />
+          </div>
+        </div>
+        </section>
+    <section id="timezone" class="tool-section"><h2>🌐 Time Zone Converter</h2>
+        <div id="timezone-converter">
+          <label for="time-input">Time (HH:MM):</label>
+          <input type="time" id="time-input" value="12:00" />
+          
+          <label for="from-tz">From:</label>
+          <select id="from-tz"></select>
+          
+          <label for="to-tz">To:</label>
+          <select id="to-tz"></select>
+          
+          <button id="convert-btn">Convert</button>
+          
+          <div id="conversion-result"></div>
+        </div>
+        </section>
+    <section id="json-editor" class="tool-section"><h2>🗂 JSON Viewer/Editor</h2>
+        <div id="json-editor-container">
+          <textarea id="json-input" spellcheck="false" placeholder="Paste or type JSON here..."></textarea>
+          <button id="parse-json-btn">Parse JSON</button>
+          <button id="format-json-btn">Format JSON</button>
+          <div id="json-output"></div>
+          <div id="json-error" role="alert"></div>
+        </div>
+        </section>
+    <section id="mind-map" class="tool-section"><h2>🧭 Mind Map Builder</h2>
+        <div id="mindmap-controls">
+          <input type="text" id="mindmap-node-text" placeholder="New node text" />
+          <button id="add-root-node">Add Root Node</button>
+        </div>
+        <div id="mindmap-container"></div>
+        </section>
+    <section id="snippets" class="tool-section"><h2>💾 Snippet Manager</h2>
+        <div id="snippet-controls">
+          <input type="text" id="snippet-title" placeholder="Title" />
+          <select id="snippet-language">
+            <option value="JavaScript">JavaScript</option>
+            <option value="HTML">HTML</option>
+            <option value="CSS">CSS</option>
+            <option value="Python">Python</option>
+            <option value="Other">Other</option>
+          </select>
+          <textarea id="snippet-code" placeholder="Write your code snippet here..."></textarea>
+          <button id="add-snippet-btn">➕ Add Snippet</button>
+        </div>
+        <div id="snippet-filter">
+          <input type="text" id="snippet-search" placeholder="Search snippets..." />
+          <select id="language-filter">
+            <option value="All">All Languages</option>
+            <option value="JavaScript">JavaScript</option>
+            <option value="HTML">HTML</option>
+            <option value="CSS">CSS</option>
+            <option value="Python">Python</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <div id="snippet-list"></div>
+        </section>
+    <section id="regex" class="tool-section"><h2>🔍 Regex Tester</h2>
+        <div id="regex-controls">
+          <input type="text" id="regex-pattern" placeholder="Enter regex pattern (e.g. \\bword\\b)" />
+          <input type="text" id="regex-flags" placeholder="Flags (e.g. g, i, m)" />
+        </div>
+        <textarea id="regex-input" placeholder="Type or paste text here..."></textarea>
+        <div id="regex-output"></div>
+        </section>
+  </main>
+  <footer>
+    <p>© 2025 Productivity Suite</p>
+  </footer>
+</body>
+</html>
